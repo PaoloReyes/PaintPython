@@ -24,15 +24,12 @@ class Valve:
     def __wait(self, time_to_sleep: float):
         time.sleep(time_to_sleep)
 
-    @property
-    def angle(self):
-        return self.__angle
-
     def reset(self):
         self.close(self.__reset_time)
 
     def turn_to_angle(self, desired_angle: float):
         time_to_turn = self.__angle_to_time_slope * desired_angle
+        print(f"Turning to {desired_angle} in {time_to_turn} seconds")
         if desired_angle - self.__angle > 0:
             self.open(time_to_turn)
         else:

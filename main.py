@@ -11,9 +11,6 @@ def main():
             continue
 
         valve.turn_to_angle(valve_angle)
-        print(f"Current Angle: {valve.angle}")
-        print("Continue? (y/n): ")
-        if input() == 'n': break
 
 if __name__ == '__main__':
     main()
