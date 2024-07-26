@@ -28,9 +28,10 @@ class Valve:
         self.close(self.__reset_time)
 
     def turn_to_angle(self, desired_angle: float):
-        time_to_turn = self.__angle_to_time_slope * desired_angle
+        error = desired_angle - self.__angle
+        time_to_turn = self.__angle_to_time_slope * error
         print(f"Turning to {desired_angle} in {time_to_turn} seconds")
-        if desired_angle - self.__angle > 0:
+        if error > 0:
             self.open(time_to_turn)
         else:
             self.close(time_to_turn)
