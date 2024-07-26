@@ -21,8 +21,8 @@ class Valve:
     def __get_current_state(self):
         return client.read_holding_registers(address=self.address, count=1, unit=1).registers[0]
     
-    def __wait(self, time: float):
-        time.sleep(time)
+    def __wait(self, time_to_sleep: float):
+        time.sleep(time_to_sleep)
 
     @property
     def angle(self):
