@@ -5,7 +5,7 @@ def main():
     valve.reset()
     while True:
         try:
-            valve_angle = float(input("Current Angle: "))
+            valve_angle = float(input("Desired Angle: "))
         except ValueError:
             print("Invalid Input")
             continue
