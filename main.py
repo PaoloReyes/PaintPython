@@ -1,7 +1,7 @@
 from utils.valve import Valve
 
 def main():
-    valve = Valve(address=512, open_bit=0, close_bit=1)
+    valve = Valve(address=512, open_bit=1, close_bit=0)
     valve.reset()
     while True:
         try:

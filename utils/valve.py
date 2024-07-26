@@ -15,7 +15,7 @@ class Valve:
         self.__angle = 0.0
         
         # The following values are specific to the valve used in the project
-        self.__angle_to_time_slope = 41.111
+        self.__angle_to_time_slope = 0.041111
         self.__reset_time = 5.0
 
     def __get_current_state(self):
