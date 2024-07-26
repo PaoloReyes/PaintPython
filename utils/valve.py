@@ -15,8 +15,8 @@ class Valve:
         self.__angle = 0.0
         
         # The following values are specific to the valve used in the project
-        self.angle_to_time_slope = 41.111
-        self.reset_time = 5.0
+        self.__angle_to_time_slope = 41.111
+        self.__reset_time = 5.0
 
     def __get_current_state(self):
         return client.read_holding_registers(address=self.address, count=1, unit=1).registers[0]
@@ -29,7 +29,7 @@ class Valve:
         return self.__angle
 
     def reset(self):
-        self.close(self.reset_time)
+        self.close(self.__reset_time)
 
     def turn_to_angle(self, desired_angle: float):
         time_to_turn = self.__angle_to_time_slope * desired_angle
