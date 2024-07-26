@@ -15,7 +15,7 @@ class Valve:
         self.__angle = 0.0
         
         # The following values are specific to the valve used in the project
-        self.__angle_to_time_slope = 0.0405
+        self.__angle_to_time_slope = 0.039
         self.__reset_time = 5.0
 
     def __get_current_state(self):
@@ -28,6 +28,11 @@ class Valve:
         self.close(self.__reset_time)
 
     def turn_to_angle(self, desired_angle: float):
+        if desired_angle < 0:
+            desired_angle = 0
+        elif desired_angle > 90:
+            desired_angle = 90
+        
         error = desired_angle - self.__angle
         time_to_turn = self.__angle_to_time_slope * abs(error)
         print(f"Turning to {desired_angle} in {time_to_turn} seconds")
